@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "463610673095",
+    "project_id": "cs450responsivedesign-c9b2d",
+    "storage_bucket": "cs450responsivedesign-c9b2d.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:463610673095:android:0fa924bddce9a247b9cbe2",
+        "android_client_info": {
+          "package_name": "com.example.responsive_design"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBkHgmHtn5oBOAzxLjRwXymujG3a5da2Ts"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

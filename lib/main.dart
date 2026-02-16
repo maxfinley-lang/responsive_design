@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:responsive_design/profile_card.dart';
+import 'package:firebase_core/firebase_core.dart'; 
+import 'firebase_options.dart'; // This is the file the CLI generated
 
-void main(){
-  runApp(const MyApp());
-}
+void main() async {
+  // Required for Firebase initialization
+  WidgetsFlutterBinding.ensureInitialized();
+  
+  // Initialize Firebase
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
 
-class MyApp extends StatelessWidget{
-  const MyApp({super.key});
-
-  Widget build(BuildContext context){
-    return MaterialApp(
-      title: 'Responsive design',
-
-      home: const ProfileCard(),
-    );
-  }
-
+  runApp(const MaterialApp(
+    home: Scaffold(
+      body: Center(child: Text('Firebase Initialized!')),
+    ),
+  ));
 }

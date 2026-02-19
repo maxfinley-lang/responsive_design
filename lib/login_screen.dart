@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_design/profile_card.dart';
 import 'package:responsive_design/auth_service.dart';
+import 'package:responsive_design/sign_up_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -41,6 +42,15 @@ class _LoginScreenState extends State<LoginScreen> {
                 _password(),
                 const SizedBox(height: 20),
                 _isLoading ? const CircularProgressIndicator() : _loginButton(),
+                const SizedBox(height: 10),
+                TextButton(
+                  onPressed: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(builder: (context) => const SignUpScreen()),
+                    );
+                  },
+                  child: const Text('Don\'t have an account? Sign Up'),
+                ),
               ],
             ),
           ),

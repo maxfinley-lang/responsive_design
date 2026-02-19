@@ -11,10 +11,10 @@ Future<User?> signIn({
   required String password,
 }) async {
   try{
-    final UserCredential credintial = await _auth.signInWithEmailAndPassword(    email: email,
+    final UserCredential credential = await _auth.signInWithEmailAndPassword(    email: email,
     password:password,
     );
-    return credintial.user;
+    return credential.user;
   } on FirebaseAuthException catch (e){
     if(e.code == 'user-not-found'){
       throw Exception('No user found for that emial.');
@@ -24,6 +24,27 @@ Future<User?> signIn({
       throw Exception(e.message ?? 'An unkown error occured');
     }
   }catch(e){
+    throw Exception('System error: $e');
+  }
+}
+
+Future<User?> signUp({
+  required String email,
+  required String password,
+}) async {
+  try {
+    final UserCredential credential = await _auth.createUserWithEmailAndPassword(
+      email: email,
+      password: password,
+    );
+    return credential.user;
+  } on FirebaseAuthException catch (e) {
+    if (e.code == 'email-already-in-use') {
+      throw Exception('email-already-in-use'); // Specifically catch this for navigation logic
+    } else {
+      throw Exception(e.message ?? 'An unknown error occurred');
+    }
+  } catch (e) {
     throw Exception('System error: $e');
   }
 }
